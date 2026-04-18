@@ -14,9 +14,6 @@ import { fileURLToPath } from 'url'
 import authRoutes from './routes/auth.js'
 import binanceRoutes from './routes/binance.js'
 import strategiesRoutes from './routes/strategies.js'
-import botRoutes from './routes/bot.js'
-import tradesRoutes from './routes/trades.js'
-import logsRoutes from './routes/logs.js'
 
 // for esm mode
 const __filename = fileURLToPath(import.meta.url)
@@ -37,9 +34,6 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' }))
 app.use('/api/auth', authRoutes)
 app.use('/api/binance', binanceRoutes)
 app.use('/api/strategies', strategiesRoutes)
-app.use('/api/bot', botRoutes)
-app.use('/api/trades', tradesRoutes)
-app.use('/api/logs', logsRoutes)
 
 /**
  * health
