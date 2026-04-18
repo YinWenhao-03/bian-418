@@ -36,6 +36,18 @@ app.use('/api/binance', binanceRoutes)
 app.use('/api/strategies', strategiesRoutes)
 
 /**
+ * Static files (production)
+ */
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../dist')))
+  
+  // 所有非 API 请求返回前端 index.html
+  app.get('*', (req: Request, res: Response) => {
+    res.sendFile(path.join(__dirname, '../dist/index.html'))
+  })
+}
+
+/**
  * health
  */
 app.use(
